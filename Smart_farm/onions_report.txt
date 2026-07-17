@@ -1,0 +1,35 @@
+
+### 🌦 Weather Summary
+Clara checking in — expect temps near 86.4°F and rainfall around 0.0 inches.
+
+### ⚠️ Crop Risk Assessment
+Rusty here — main risks today:
+• No rainfall — irrigation needed
+• No USDA yield data available — rely on field scouting
+• World Bank land-use data unavailable — no regional insights
+Stay sharp out there.
+
+### 📊 USDA & World Bank Data
+Millie’s data drop — USDA: {}. WB: {'indicator': 'AG.LND.AGRI.ZS', 'value': 'Data not available'}.
+
+### 🧑‍🌾 Advisor Recommendations
+Doc Hayes here — looking things over:
+Alright partner — looking over conditions for your ONIONS in Bakersfield, CA.
+A few risks popped up:
+• No rainfall — irrigation needed
+• No USDA yield data available — rely on field scouting
+• World Bank land-use data unavailable — no regional insights
+• USDA yield data unavailable — rely on field scouting.
+• World Bank land-use data unavailable — no regional insights.
+Overall, keep your irrigation tuned, monitor field conditions closely, and adjust based on real-time observations.
+
+### 🔍 Reviewer Notes
+Ivy’s clarity check — here’s what I see:
+Alright partner — looking over conditions for your ONIONS in Bakersfield, CA.
+A few risks popped up:
+• No rainfall — irrigation needed
+• No USDA yield data available — rely on field scouting
+• World Bank land-use data unavailable — no regional insights
+• USDA yield data unavailable — rely on field scouting.
+• World Bank land-use data unavailable — no regional insights.
+Overall, keep your irrigation tuned, monitor field conditions closely, and adjust based on real-time observations.

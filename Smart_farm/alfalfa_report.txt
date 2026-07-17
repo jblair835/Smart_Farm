@@ -1,0 +1,34 @@
+
+### 🌦 Weather Summary
+Weather wrangler Clara reporting — 86.4°F today and 0.0 inches of rain.
+
+### ⚠️ Crop Risk Assessment
+Rusty chiming in — these risks popped up:
+• No rainfall — irrigation needed
+• No USDA yield data available — rely on field scouting
+• World Bank land-use data unavailable — no regional insights
+
+### 📊 USDA & World Bank Data
+Millie crunching numbers — USDA: {}, WB: {'indicator': 'AG.LND.AGRI.ZS', 'value': 'Data not available'}.
+
+### 🧑‍🌾 Advisor Recommendations
+Alright partner — here’s my take:
+Alright partner — looking over conditions for your ALFALFA in Bakersfield, CA.
+A few risks popped up:
+• No rainfall — irrigation needed
+• No USDA yield data available — rely on field scouting
+• World Bank land-use data unavailable — no regional insights
+• USDA yield data unavailable — rely on field scouting.
+• World Bank land-use data unavailable — no regional insights.
+Overall, keep your irrigation tuned, monitor field conditions closely, and adjust based on real-time observations.
+
+### 🔍 Reviewer Notes
+Inspector Ivy reporting — here’s my read:
+Alright partner — looking over conditions for your ALFALFA in Bakersfield, CA.
+A few risks popped up:
+• No rainfall — irrigation needed
+• No USDA yield data available — rely on field scouting
+• World Bank land-use data unavailable — no regional insights
+• USDA yield data unavailable — rely on field scouting.
+• World Bank land-use data unavailable — no regional insights.
+Overall, keep your irrigation tuned, monitor field conditions closely, and adjust based on real-time observations.

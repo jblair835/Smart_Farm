@@ -1,0 +1,34 @@
+
+### 🌦 Weather Summary
+Skies say 86.4°F and 0.0 inches of rain — keep an eye out!
+
+### ⚠️ Crop Risk Assessment
+Rusty’s take — nothing we can’t handle:
+• No rainfall — irrigation needed
+• No USDA yield data available — rely on field scouting
+• World Bank land-use data unavailable — no regional insights
+
+### 📊 USDA & World Bank Data
+Millie crunching numbers — USDA: {}, WB: {'indicator': 'AG.LND.AGRI.ZS', 'value': 'Data not available'}.
+
+### 🧑‍🌾 Advisor Recommendations
+Here’s the plan, straight from Doc:
+Alright partner — looking over conditions for your TOMATOES in Bakersfield, CA.
+A few risks popped up:
+• No rainfall — irrigation needed
+• No USDA yield data available — rely on field scouting
+• World Bank land-use data unavailable — no regional insights
+• USDA yield data unavailable — rely on field scouting.
+• World Bank land-use data unavailable — no regional insights.
+Overall, keep your irrigation tuned, monitor field conditions closely, and adjust based on real-time observations.
+
+### 🔍 Reviewer Notes
+Inspector Ivy reporting — here’s my read:
+Alright partner — looking over conditions for your TOMATOES in Bakersfield, CA.
+A few risks popped up:
+• No rainfall — irrigation needed
+• No USDA yield data available — rely on field scouting
+• World Bank land-use data unavailable — no regional insights
+• USDA yield data unavailable — rely on field scouting.
+• World Bank land-use data unavailable — no regional insights.
+Overall, keep your irrigation tuned, monitor field conditions closely, and adjust based on real-time observations.
