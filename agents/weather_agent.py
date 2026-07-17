@@ -21,7 +21,6 @@ class WeatherAgent:
                 "error": "Latitude or longitude is missing."
             }
 
-        # Build API request
         url = (
             "https://api.open-meteo.com/v1/forecast?"
             f"latitude={lat}&longitude={lon}"
@@ -29,7 +28,6 @@ class WeatherAgent:
             "&timezone=America/Los_Angeles"
         )
 
-        # Fetch weather
         data = requests.get(url).json()
 
         # SAFETY CHECK — prevent KeyError
@@ -41,7 +39,6 @@ class WeatherAgent:
                 "raw_response": data
             }
 
-        # Build 3‑day weather structure
         return {
             "agent": "Weather Agent",
             "weather": {
