@@ -1,14 +1,29 @@
+from .agents import WeatherAgent, CropRiskAgent, DataAgent, AdvisorAgent, ReviewerAgent, ReportAgent
+
+
 class SmartFarm:
     """
     SmartFarm Orchestrator — now supports full scenario objects.
     """
 
-    def __init__(self, crop, lat, lon, location, scenario=None):
+    def __init__(self, crop, location, scenario=None):
+        """Initialize SmartFarm.
+
+        location may be a (lat, lon) tuple/list or a dict with 'lat' and 'lon' keys,
+        or any other descriptor. lat/lon will be extracted when available.
+        """
         self.crop = crop
-        self.lat = lat
-        self.lon = lon
         self.location = location
         self.scenario = scenario or {}
+
+        # extract lat/lon if provided in location to reduce positional args
+        self.lat = None
+        self.lon = None
+        if isinstance(location, (tuple, list)) and len(location) >= 2:
+            self.lat, self.lon = location[0], location[1]
+        elif isinstance(location, dict):
+            self.lat = location.get("lat")
+            self.lon = location.get("lon")
 
         self.weather_agent = WeatherAgent()
         self.crop_risk_agent = CropRiskAgent()
