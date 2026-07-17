@@ -5,20 +5,20 @@ class ReportAgent:
     Sage provides persona-rich summary.
     """
 
-    def run(
-        self,
-        weather_output,
-        risk_output,
-        data_output,
-        advisor_output,
-        reviewer_output,
-        weather_voice,
-        risk_voice,
-        data_voice,
-        advisor_voice,
-        reviewer_voice
-    ):
-        # Fallbacks to prevent None from breaking formatting
+    def run(self, *args, **kwargs) -> dict[str, str]:
+        """Produce the final structured farm report."""
+        # Support legacy positional voice inputs and keyword voice inputs.
+        if args and not kwargs:
+            weather_voice, risk_voice, data_voice, advisor_voice, reviewer_voice = (
+                list(args[:5]) + [None] * 5
+            )[:5]
+        else:
+            weather_voice = kwargs.get("weather_voice")
+            risk_voice = kwargs.get("risk_voice")
+            data_voice = kwargs.get("data_voice")
+            advisor_voice = kwargs.get("advisor_voice")
+            reviewer_voice = kwargs.get("reviewer_voice")
+
         weather_voice = weather_voice or "Weather data unavailable."
         risk_voice = risk_voice or "No risk data available."
         data_voice = data_voice or "(No USDA data provided.)"

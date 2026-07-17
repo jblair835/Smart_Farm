@@ -1,3 +1,5 @@
+"""Advisor agent for making farm recommendations."""
+
 # agents/advisor_agent.py
 class AdvisorAgent:
     """
@@ -5,7 +7,8 @@ class AdvisorAgent:
     Ranks priorities. Doc provides persona-rich advice.
     """
 
-    def run(self, weather, risks, scenario):
+    def run(self, risks, _scenario):
+        """Make decisions based on detected risks: irrigation, pesticide, fertilizer."""
         decisions = {}
 
         # --- Irrigation ---
@@ -63,14 +66,15 @@ class AdvisorAgent:
         lines = ["Here’s the plan, straight from Doc:"]
 
         for name, d in decisions.items():
-            # Determine YES/NO safely
-            yes_no = (
-                "YES"
-                if d.get("should_irrigate")
-                or d.get("should_spray")
-                or d.get("should_apply")
-                else "NO"
-            )
+            # Dynamically look up the correct boolean flag based on the category name
+            key_map = {
+                "irrigation": "should_irrigate",
+                "pesticide": "should_spray",
+                "fertilizer": "should_apply"
+            }
+            action_key = key_map.get(name)
+            is_active = d.get(action_key, False) if action_key else False
+            yes_no = "YES" if is_active else "NO"
 
             lines.append(
                 f"\n{name.title()} — {yes_no}"

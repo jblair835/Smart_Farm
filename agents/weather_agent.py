@@ -28,7 +28,7 @@ class WeatherAgent:
             "&timezone=America/Los_Angeles"
         )
 
-        data = requests.get(url).json()
+        data = requests.get(url, timeout=10).json()
 
         # SAFETY CHECK — prevent KeyError
         daily = data.get("daily")
@@ -60,7 +60,21 @@ class WeatherAgent:
             }
         }
 
-    def speak(self, weather, prompt=None):
+    def speak(self, weather, prompt=None) -> str:
+        """Return a short spoken summary for day 1 from the provided weather dict.
+
+        Args:
+            weather (dict): Weather data with keys 'day1', 'day2', 'day3'.
+            prompt (str, optional): Unused; kept for interface compatibility.
+
+        Returns:
+            str: A brief spoken summary sentence.
+        """
+        # prompt is kept for interface compatibility; it's intentionally unused
+        if prompt is not None:
+            # explicitly ignore to satisfy linters
+            del prompt
+
         return (
             f"Clara says: Day 1 will be {weather['day1']['temp_c']}°C with "
             f"{weather['day1']['rain_mm']}mm rain and {weather['day1']['wind_kmh']} km/h wind."

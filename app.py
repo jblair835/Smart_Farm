@@ -48,7 +48,7 @@ if st.button("Get Advisory"):
         with st.spinner("Analyzing your farm conditions..."):
             try:
                 response = brain.ask(prompt, lat=lat, lon=lon)
-            except Exception as e:
+            except ValueError as e:
                 response = (
                     "⚠️ An unexpected error occurred while generating your advisory.\n\n"
                     f"**Details:** {e}\n\n"
@@ -65,7 +65,7 @@ if st.button("Get Advisory"):
 
             # Scenario + risks + decisions + review via SmartFarmBrain internals
             # (We don't have direct access to all internals here, so we focus on weather.)
-        except Exception:
+        except (KeyError, AttributeError, TypeError) as e:
             weather_data = None
 
         # ---------------------------
@@ -168,7 +168,7 @@ if st.button("Get Advisory"):
                     st.write("### 💨 Wind Speed (km/h)")
                     st.line_chart({"Wind": wind}, x=days)
 
-                except Exception as e:
+                except (KeyError, TypeError, ValueError) as e:
                     st.warning(f"Dashboard unavailable: {e}")
 
         # ---------------------------

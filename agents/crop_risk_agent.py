@@ -1,4 +1,10 @@
 # agents/crop_risk_agent.py
+"""
+Crop risk detection agent for agricultural scenario analysis.
+Analyzes weather and farm conditions to identify potential risks.
+"""
+
+
 class CropRiskAgent:
     """
     Detects agricultural risks using weather + farm conditions.
@@ -6,6 +12,7 @@ class CropRiskAgent:
     """
 
     def run(self, weather, scenario):
+        """Analyze weather and farm scenario to identify crop risks."""
         risks = []
 
         # If weather is missing or errored, return no weather-based risks
@@ -41,6 +48,7 @@ class CropRiskAgent:
         return {"risks": risks}
 
     def speak(self, risks):
+        """Return a user-friendly summary of detected risks."""
         if not risks:
             return "Rusty says: No major risks today — you're in good shape."
 
