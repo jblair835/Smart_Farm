@@ -1,3 +1,50 @@
+class WeatherAgent:
+    def run(self, lat, lon, forecast_override=None):
+        # minimal stub returning expected structure
+        return {"weather": forecast_override or {"temp": 20, "condition": "clear"}}
+
+    def speak(self, weather):
+        return f"Weather: {weather}"
+
+
+class CropRiskAgent:
+    def run(self, weather, scenario):
+        return {"risks": ["drought"]}
+
+    def speak(self, risks):
+        return f"Risks: {risks}"
+
+
+class DataAgent:
+    def run(self, crop):
+        return {"usda_raw": {}, "world_bank": {}}
+
+    def speak(self, usda, world):
+        return "Data summary"
+
+
+class AdvisorAgent:
+    def run(self, weather, risks, scenario):
+        return {"recommendation": "Irrigate moderately."}
+
+    def speak(self, recommendation):
+        return f"Advisor: {recommendation}"
+
+
+class ReviewerAgent:
+    def run(self, recommendation):
+        return {"issues": []}
+
+    def speak(self, issues):
+        return f"Reviewer: {issues}"
+
+
+class ReportAgent:
+    def run(self, **kwargs):
+        # combine pieces into a final report dict
+        return {"report": "OK", "details": kwargs}
+
+
 class SmartFarm:
     """
     SmartFarm Orchestrator — now supports full scenario objects.
