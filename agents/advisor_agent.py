@@ -1,18 +1,28 @@
 """Advisor agent for making farm recommendations."""
 
-# agents/advisor_agent.py
+
 class AdvisorAgent:
     """
     Makes decisions: irrigation, pesticide, fertilizer.
     Ranks priorities. Doc provides persona-rich advice.
     """
 
-    def run(self, risks, _scenario):
-        """Make decisions based on detected risks: irrigation, pesticide, fertilizer."""
+    def run(self, weather, risks, _scenario):
+        """Generate farm recommendations based on weather and risk conditions."""
+        # Ensure we reference `weather` to avoid unused-argument warnings.
+        # Accepts dict-like weather with optional 'rain_mm' or 'rain_expected' keys.
+        if isinstance(weather, dict):
+            rain_mm = weather.get("rain_mm") if weather.get("rain_mm") is not None else (
+                5 if weather.get("rain_expected") else 0
+            )
+        else:
+            rain_mm = 0
+
         decisions = {}
 
         # --- Irrigation ---
-        if risks.get("water_stress"):
+        # If rain is imminent, deprioritize irrigation even with water stress
+        if risks.get("water_stress") and (rain_mm == 0 or rain_mm < 2):
             decisions["irrigation"] = {
                 "should_irrigate": True,
                 "timing": "Evening of Day 1 (cooler temps, less evaporation)",
@@ -44,7 +54,9 @@ class AdvisorAgent:
             }
 
         # --- Fertilizer ---
-        if risks.get("fertilizer_leaching"):
+        # If light rain is expected (under ~2 mm) it's safe to apply;
+        # heavy rain increases leaching risk
+        if risks.get("fertilizer_leaching") or (rain_mm and rain_mm >= 5):
             decisions["fertilizer"] = {
                 "should_apply": False,
                 "timing": "After Day 3 rainfall",
@@ -65,13 +77,13 @@ class AdvisorAgent:
         """Persona output from Doc."""
         lines = ["Here’s the plan, straight from Doc:"]
 
+        key_map = {
+            "irrigation": "should_irrigate",
+            "pesticide": "should_spray",
+            "fertilizer": "should_apply"
+        }
+
         for name, d in decisions.items():
-            # Dynamically look up the correct boolean flag based on the category name
-            key_map = {
-                "irrigation": "should_irrigate",
-                "pesticide": "should_spray",
-                "fertilizer": "should_apply"
-            }
             action_key = key_map.get(name)
             is_active = d.get(action_key, False) if action_key else False
             yes_no = "YES" if is_active else "NO"
